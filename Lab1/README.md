@@ -1,6 +1,7 @@
 # NYCU Computer Vision 2025 Spring HW1
 
 StudentID: 111550089
+
 Name: 李宗諺
 
 ## Introduction
@@ -67,3 +68,5 @@ python ensemble_se_sk_cm_resnext_test.py --config ensemble_se_sk_cm_resnext_conf
 ```
 
 ## Performance Snapshot
+
+![image](https://github.com/user-attachments/assets/9784b9e6-80a4-4ab5-95ce-a811597d0f3f)
