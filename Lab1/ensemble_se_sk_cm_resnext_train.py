@@ -6,6 +6,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import torch.multiprocessing as mp
 import torch.nn.functional as F
 import torch.multiprocessing as mp
 import matplotlib.pyplot as plt
@@ -421,7 +422,6 @@ def train_one_model(config, model_idx):
         f.write(f"Train Acc: {train_accs}\n")
         f.write(f"Val Acc: {val_accs}\n")
 
-import torch.multiprocessing as mp
 
 def main():
     # Parse arguments

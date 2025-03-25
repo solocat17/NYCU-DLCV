@@ -5,6 +5,7 @@ import json
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import torch.multiprocessing as mp
 from torch.utils.data import DataLoader
 from torchvision import models, transforms
 from torchvision.models import ResNeXt101_32X8D_Weights, ResNeXt101_64X4D_Weights
@@ -390,7 +391,6 @@ def train_one_model(config, model_idx):
         f.write(f"Train Acc: {train_accs}\n")
         f.write(f"Val Acc: {val_accs}\n")
 
-import torch.multiprocessing as mp
 
 def main():
     # Parse arguments

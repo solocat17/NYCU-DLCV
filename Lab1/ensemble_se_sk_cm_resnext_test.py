@@ -10,7 +10,11 @@ from tqdm import tqdm
 import pandas as pd
 import numpy as np
 import timm
-
+import zipfile
+import datetime
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
 
 # Import custom dataset and transforms
 from cutmixdataloader import get_data_loaders
@@ -166,9 +170,7 @@ def get_model(config, model_idx, is_single):
 
 def draw_confusion_matrix(all_labels, ensemble_predictions, class_names, save_dir, dataset_type):
     """Draw a confusion matrix for the given true and predicted labels."""
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-    from sklearn.metrics import confusion_matrix
+
 
     # For ensemble model
     cm_ensemble = confusion_matrix(all_labels, ensemble_predictions)
@@ -432,8 +434,6 @@ def main():
     submission[['image_name', 'pred_label']].to_csv(submission_path, index=False)
     
     # Zip the submission file with timestamp
-    import zipfile
-    import datetime
     timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
     with zipfile.ZipFile(f'{config["save_dir"]}/submission_{timestamp}_{args.strategy}.zip', 'w') as z:
         z.write(submission_path, 'prediction.csv')
