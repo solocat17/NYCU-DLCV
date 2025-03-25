@@ -6,6 +6,8 @@ Name: 李宗諺
 
 ## Introduction
 
+In this assignment, we explored ResNet architectures to tackle a multi-class image classification problem. As directly training the original ResNet is too simple, I focused on leveraging state-of-the-art techniques such as ResNeXt, SE-ResNeXt, and SK-ResNeXt, to cope with the problem. Additionally, I implemented CutMix to augment the dataset in a more advanced manner and modified the network structure to enforce ensemble. Eventually, the overall performance on public dataset goes to 94% on Codabench.
+
 ## How to install
 
 It is recommended to use `conda` to manage the environment. The following command will create a new environment and install the required packages.
