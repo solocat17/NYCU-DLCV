@@ -44,10 +44,10 @@ The evaluation script supports 4 arguments:
 - `--config`: the path of the config file. The default is `configs/default.yml`.
 - `--exp_name`: the name of the experiment. The default is `exp1`. The result will be saved in `results/exp1`.
 - `--data_dir`: the path of the dataset. The default is `.`, which refers to `./nycu-hw2-data`
-- `--ckpt_path`: the path of the checkpoint file.
+- `--model_path`: the path of the checkpoint file.
 
 ```bash
-python test.py --config configs/default.yml --exp_name exp --data_dir . --ckpt_path results/${exp_name}/checkpoints/best_model.pth
+python test.py --config configs/default.yml --exp_name exp --data_dir . --model_path results/${exp_name}/checkpoints/best_model.pth
 ```
 
 ## Performance Snapshot
