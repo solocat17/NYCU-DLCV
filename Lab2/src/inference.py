@@ -9,60 +9,6 @@ import numpy as np
 from torchvision.ops import nms
 from PIL import Image
 
-def plot_img_bbox(img, output, save_path=None):
-    """Plot image with bounding boxes and save to file"""
-    # Convert tensor to numpy image
-    if torch.is_tensor(img):
-        img = img.squeeze(0).permute(1, 2, 0).cpu().numpy()
-        # Denormalize
-        img = np.clip(img, 0, 1)
-
-    # Resize the image and the boxes to a fixed size: 800x400
-    img = Image.fromarray((img * 255).astype(np.uint8))
-    original_size = img.size
-    # Resize the image by direct upscaling without interpolation
-    img = img.resize((800, 400), Image.BILINEAR)
-    img = np.array(img) / 255.0
-    for box in output['boxes']:
-        box[0] = box[0] * (800 / original_size[1])
-        box[1] = box[1] * (400 / original_size[0])
-        box[2] = box[2] * (800 / original_size[1])
-        box[3] = box[3] * (400 / original_size[0])
-
-    # Create figure with dynamic size
-    fig, ax = plt.subplots(1, figsize=(12, 9))
-    ax.imshow(img)
-
-    for box, label, score in zip(output['boxes'], output['labels'], output['scores']):
-        box = box.detach().cpu().numpy()
-        x, y, x2, y2 = box
-        width = x2 - x
-        height = y2 - y
-
-        # Create rectangle patch
-        rect = patches.Rectangle((x, y), width, height, linewidth=2, 
-                                edgecolor='r', facecolor='none')
-        ax.add_patch(rect)
-
-        # Convert label to int and score to float
-        label = int(label.detach().cpu())
-        score = float(score.detach().cpu())
-
-        # Add label text
-        plt.text(x, y - 5, f'{label - 1}: {score:.2f}',
-                color='white', fontsize=12,
-                bbox=dict(facecolor='red', alpha=0.5))
-    
-    plt.axis('off')
-
-    if save_path:
-        plt.savefig(save_path, bbox_inches='tight', pad_inches=0.1)
-    else:
-        plt.show()
-    plt.cla()
-    plt.clf()
-    plt.close(fig)
-
 def infer(model, test_loader, device, output_dir, confidence_threshold=0.3, nms_threshold=0.1):
     """
     Perform inference on test data
@@ -139,12 +85,6 @@ def infer(model, test_loader, device, output_dir, confidence_threshold=0.3, nms_
                     pred_dict['boxes'][:, 3] = torch.clamp(pred_dict['boxes'][:, 3], max=original_sizes[i][1])    
                 
                 all_predictions.append(pred_dict)
-
-            # Save first 50 images with predictions
-            if image_ids[i].item() < 50:
-                img_path = os.path.join(output_dir, f"{image_ids[i].item()}.png")
-                # print(f"Image size: {images[i].shape}")
-                plot_img_bbox(images[i], pred_dict, save_path=img_path)
 
     return all_predictions
 
