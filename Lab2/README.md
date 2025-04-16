@@ -52,4 +52,4 @@ python test.py --config configs/default.yml --exp_name exp --data_dir . --ckpt_p
 
 ## Performance Snapshot
 
-![image](https://github.com/user-attachments/assets/9784b9e6-80a4-4ab5-95ce-a811597d0f3f)
+![image](https://github.com/user-attachments/assets/53c7b62e-ddcf-4e4b-9461-31e80db682dc)
