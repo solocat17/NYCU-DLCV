@@ -10,3 +10,4 @@ Lecturer: 林彥宇
 ## Assignments
 - [HW1: Image Classification](/Lab1)
 - [HW2: Digit Detection](/Lab2)
+- [HW3: Medical Cell Segmentation](/Lab3)
