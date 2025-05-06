@@ -6,6 +6,8 @@ Name: 李宗諺
 
 ## Introduction
 
+In this assignment, we explored Mask R-CNN architecture to tackle a medical cell instance segmentation problem. Mask R-CNN extends Faster R-CNN by adding a branch for predicting segmentation masks in parallel with the existing branch for bounding box recognition. I implemented a complete Mask R-CNN pipeline with ResNet-50 as the backbone architecture and explored several modifications to improve performance, including adjusting augmentation strategies, experimenting with resolution scaling, and testing alternative backbones. The model was trained to recognize and segment four different cell types in histopathological images, achieving 0.3253 mAP on the public test dataset despite the inherent challenges of medical image segmentation.
+
 ## How to install
 
 It is recommended to use `conda` to manage the environment. The following command will create a new environment and install the required packages.
@@ -47,3 +49,5 @@ python test.py --model_path result/exp1/best_model.pth \
 The `parallel_test.py` script shares the same arguments as `test.py`.
 
 ## Performance Snapshot
+
+![image](https://github.com/user-attachments/assets/4400435b-d3e7-4319-a752-ae9a4033ad89)
