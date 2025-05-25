@@ -11,3 +11,4 @@ Lecturer: 林彥宇
 - [HW1: Image Classification](/Lab1)
 - [HW2: Digit Detection](/Lab2)
 - [HW3: Medical Cell Segmentation](/Lab3)
+- [HW4: Image Restoration](/Lab4)
