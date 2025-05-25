@@ -6,6 +6,7 @@ Name: 李宗諺
 
 ## Introduction
 
+In this assignment, we explored the PromptIR architecture to tackle image restoration. PromptIR solves blind image restoration, utilizing learnable prompts to guide the restoration process for various degradation types. I followed the PromptIR pipeline and explored modifications to enhance its performance for dual-degradation image restoration tasks involving both rain and snow. This included varying the prompt length within the PromptGenBlock modules to investigate its impact on restoration quality for specific degradation types. I also enhanced the loss function by combining L1, PSNR, SSIM, and VGG perceptual losses, and implemented model ensemble techniques to boost the eventual performance. The model was trained to restore images degraded by rain and snow, and a PSNR score of 32.11 on the public test dataset was achieved.
 
 ## How to install
 
@@ -106,3 +107,4 @@ python ensemble.py \
 
 ## Performance Snapshot
 
+![image](https://github.com/user-attachments/assets/ccd37d3e-1695-482d-86f2-0f1f20a5f074)
