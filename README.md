@@ -12,3 +12,4 @@ Lecturer: 林彥宇
 - [HW2: Digit Detection](/Lab2)
 - [HW3: Medical Cell Segmentation](/Lab3)
 - [HW4: Image Restoration](/Lab4)
+- [Final Project: NOAA Fisheries Steller Sea Lion Population Count](https://github.com/GuanWei926/Selected-Topics-in-Visual-Recognition-using-Deep-Learning/tree/main/Final_Project)
